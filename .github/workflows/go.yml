@@ -37,6 +37,7 @@ jobs:
     - name: Unit Test
       run: make test
     - name: Upload coverage infomartion
+      if: matrix.os != 'self-hosted'
       uses: codecov/codecov-action@v4
       env:
         CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}

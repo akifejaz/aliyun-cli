@@ -12,6 +12,9 @@ jobs:
     strategy:
       matrix:
         os: [ubuntu-latest, macos-13, windows-latest]
+        include:
+         - os: self-hosted  # Add a native RISC-V leg that uses your self-hosted riscv64 runner
+           runs_on: '["self-hosted","Linux","riscv64"]'
     runs-on: ${{ matrix.os }}
     environment: CI
     steps:

@@ -35,9 +35,9 @@ jobs:
         sudo apt install -y make build-essential
 
     - name: Unit Test
+      if: matrix.os != 'self-hosted' 
       run: make test
     - name: Upload coverage infomartion
-      if: matrix.os != 'self-hosted'
       uses: codecov/codecov-action@v4
       env:
         CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
